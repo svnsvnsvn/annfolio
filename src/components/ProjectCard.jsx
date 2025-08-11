@@ -104,7 +104,7 @@ function ProjectCard({ project, index }) {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-4 py-2 dark:bg-dark-surface text-light-text-secondary dark:text-dark-text-secondary hover:text-light-pink dark:hover:text-brand-pink transition-all duration-200 rounded-full text-sm font-medium"
+              className="flex items-center gap-2 px-4 py-2 text-light-text-secondary dark:text-dark-text-secondary hover:text-light-pink dark:hover:text-brand-pink transition-all duration-200 rounded-full text-sm font-medium"
             >
               <Github className="w-4 h-4" />
               <span>Code</span>
