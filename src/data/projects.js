@@ -10,10 +10,11 @@ export const projects = [
     highlights: [
       "Ensemble ML (IF, DBSCAN, LOF)",
       "Automated Web Scraping",
-      "Advanced Feature Engineering",
+      "Feature Engineering",
       "Geospatial & Text Analysis",
       "Full-Stack"
-    ]
+    ],
+    mockup: "/project-mockups/snare.svg"
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ export const projects = [
     github: "https://github.com/svnsvnsvn/RecyclingClassifier",
     demo: null,
     tags: ["TensorFlow", "MobileNetV2", "Image Classification"],
-    highlights: ["Computer Vision", "Mobile Optimization", "Environmental Tech"]
+    highlights: ["Computer Vision", "Mobile Optimization", "Environmental Tech"],
+    // mockup: ""
   },
   {
     id: 3,
@@ -33,7 +35,8 @@ export const projects = [
     github: "https://github.com/svnsvnsvn",
     demo: null,
     tags: ["Teaching", "Python", "FastAPI", "Git", "Docker"],
-    highlights: ["Technical Education", "Leadership", "Curriculum Design"]
+    highlights: ["Technical Education", "Leadership", "Curriculum Design"],
+    // mockup: ""
   },
   {
     id: 4,
@@ -43,7 +46,8 @@ export const projects = [
     github: "https://github.com/svnsvnsvn/help-me-pick",
     demo: null,
     tags: ["React", "Framer Motion", "Interaction Design", "User Feedback"],
-    highlights: ["UI/UX Design", "User Research", "Interactive Animations"]
+    highlights: ["UI/UX Design", "User Research", "Interactive Animations"],
+    // mockup: ""
   },
   {
     id: 5,
@@ -53,7 +57,8 @@ export const projects = [
     github: "",
     demo: null,
     tags: ["ML", "AI Studio", "Break Through Tech", "WIP"],
-    highlights: ["Industry Mentorship", "Production ML", "Career Development"]
+    highlights: ["Industry Mentorship", "Production ML", "Career Development"],
+    // mockup: ""
   },
   {
     id: 6,
@@ -64,5 +69,6 @@ export const projects = [
     demo: null,
     tags: ["ASP.NET", "C#", "Youth Development", "Web App"],
     highlights: ["Social Impact", "Full-Stack Development", "Community Service"]
+    // mockup: ""
   }
 ];

@@ -70,6 +70,14 @@ function Navbar() {
                 {isMac ? '⌘' : 'Ctrl'} K
               </kbd>
             </button>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="text-light-text-muted dark:text-dark-text-muted hover:text-light-pink dark:hover:text-brand-pink transition-colors duration-200 text-sm font-mono"
+            >
+              [{theme === 'dark' ? 'light' : 'dark'}]
+            </button>
           </div>
 
           {/* Mobile/Tablet Menu Button */}

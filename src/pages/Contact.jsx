@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import BlinkingCursor from "../components/BlinkingCursor"
 
 function Contact() {
@@ -128,22 +129,42 @@ function Contact() {
   return (
     <div className="max-w-4xl mx-auto font-mono">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl text-light-pink dark:text-brand-pink mb-2">
-          ## contact
-        </h1>
-        <p className="text-light-text-secondary dark:text-dark-text-secondary">
+      <motion.div 
+        className="mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, type: "spring", stiffness: 150 }}
+      >
+        <motion.h1 
+          className="text-3xl md:text-4xl text-light-pink dark:text-brand-pink mb-2 font-medium"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.8, type: "spring", stiffness: 200, damping: 15 }}
+        >
+          contact
+        </motion.h1>
+        <motion.p 
+          className="text-light-text-secondary dark:text-dark-text-secondary"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.6, type: "spring", stiffness: 150 }}
+        >
           <span className="text-brand-blue">svn@localhost</span>
           <span className="mx-1 text-light-text-muted dark:text-dark-text-muted">❯</span>
           <span className="text-light-pink dark:text-brand-pink">~/annfolio/contact</span>
           <span className="mx-1 text-light-text-muted dark:text-dark-text-muted">❯</span>
           mail <BlinkingCursor />
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Terminal Output */}
       {showOutput && (
-        <div className="mb-8 bg-light-surface dark:bg-dark-bg border border-light-hover dark:border-dark-surface rounded-lg overflow-hidden">
+        <motion.div 
+          className="mb-8 bg-light-surface dark:bg-dark-bg border border-light-hover dark:border-dark-surface rounded-2xl overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, type: "spring", stiffness: 150 }}
+        >
           <div className="flex items-center justify-between px-4 py-2 bg-light-hover dark:bg-dark-surface border-b border-light-hover dark:border-dark-hover">
             <div className="flex items-center space-x-2">
               <span className="w-3 h-3 rounded-full bg-red-400"></span>
@@ -188,23 +209,36 @@ function Contact() {
           </div>
           {!isSubmitting && terminalOutput.length > 0 && (
             <div className="px-4 pb-4">
-              <button
+              <motion.button
                 onClick={resetTerminal}
-                className="text-xs text-light-text-muted dark:text-dark-text-muted hover:text-light-pink dark:hover:text-brand-pink"
+                className="text-xs text-light-text-muted dark:text-dark-text-muted hover:text-light-pink dark:hover:text-brand-pink px-3 py-1 rounded-full hover:bg-light-hover dark:hover:bg-dark-hover transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 [ clear terminal ]
-              </button>
+              </motion.button>
             </div>
           )}
-        </div>
+        </motion.div>
       )}
 
       {/* Form */}
-      <div className="relative">
+      <motion.div 
+        className="relative"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.8, type: "spring", stiffness: 120, damping: 15 }}
+      >
         {/* Success Toro - appears on successful submission */}
         {showSuccessToro && (
-          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
-            <div className="bg-light-card/90 dark:bg-dark-card/90 backdrop-blur-sm border border-light-hover dark:border-dark-surface rounded-lg p-6 text-center animate-bounce">
+          <motion.div 
+            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            exit={{ scale: 0, rotate: 180 }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          >
+            <div className="bg-light-card/90 dark:bg-dark-card/90 backdrop-blur-sm border border-light-hover dark:border-dark-surface rounded-2xl p-6 text-center animate-bounce">
               <img 
                 src="/toro_gifs/bits-8bits-7.gif" 
                 alt="Success Toro" 
@@ -215,11 +249,15 @@ function Contact() {
                 🎉 Message sent!
               </p>
             </div>
-          </div>
+          </motion.div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
+        <form onSubmit={handleSubmit} className="bg-light-bg/50 dark:bg-dark-surface/30 p-6 sm:p-8 rounded-2xl border border-light-hover dark:border-dark-hover space-y-6">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+        >
           <label htmlFor="name" className="block text-light-text-secondary dark:text-dark-text-secondary mb-2">
             <span className="text-light-blue dark:text-brand-blue">const</span> name = 
           </label>
@@ -229,14 +267,18 @@ function Contact() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-hover dark:border-dark-surface text-light-text-primary dark:text-dark-text-primary font-mono focus:outline-none focus:border-light-pink dark:focus:border-brand-blue transition-colors rounded-lg"
+            className="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-hover dark:border-dark-surface text-light-text-primary dark:text-dark-text-primary font-mono focus:outline-none focus:border-light-pink dark:focus:border-brand-blue transition-colors rounded-2xl"
             placeholder='"Your Name"'
             required
             disabled={isSubmitting}
           />
-        </div>
+        </motion.div>
         
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.0, duration: 0.6 }}
+        >
           <label htmlFor="email" className="block text-light-text-secondary dark:text-dark-text-secondary mb-2">
             <span className="text-light-blue dark:text-brand-blue">const</span> email = 
           </label>
@@ -246,14 +288,18 @@ function Contact() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-hover dark:border-dark-surface text-light-text-primary dark:text-dark-text-primary font-mono focus:outline-none focus:border-light-pink dark:focus:border-brand-blue transition-colors rounded-lg"
+            className="w-full px-4 py-2 bg-light-bg dark:bg-dark-bg border border-light-hover dark:border-dark-surface text-light-text-primary dark:text-dark-text-primary font-mono focus:outline-none focus:border-light-pink dark:focus:border-brand-blue transition-colors rounded-2xl"
             placeholder='"you@example.com"'
             required
             disabled={isSubmitting}
           />
-        </div>
+        </motion.div>
         
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+        >
           <label htmlFor="message" className="block text-light-text-secondary dark:text-dark-text-secondary mb-2">
             <span className="text-light-blue dark:text-brand-blue">const</span> message = 
           </label>
@@ -267,7 +313,7 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
               rows="6"
-              className="w-full pl-8 pr-8 py-2 bg-light-bg dark:bg-dark-bg border border-light-hover dark:border-dark-surface text-light-text-primary dark:text-dark-text-primary font-mono focus:outline-none focus:border-light-pink dark:focus:border-brand-blue resize-none transition-colors rounded-lg"
+              className="w-full pl-8 pr-8 py-2 bg-light-bg dark:bg-dark-bg border border-light-hover dark:border-dark-surface text-light-text-primary dark:text-dark-text-primary font-mono focus:outline-none focus:border-light-pink dark:focus:border-brand-blue resize-none transition-colors rounded-2xl"
               placeholder="Write your message here..."
               required
               disabled={isSubmitting}
@@ -276,17 +322,25 @@ function Contact() {
               `
             </span>
           </div>
-        </div>
+        </motion.div>
         
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full border border-light-pink dark:border-brand-blue text-light-pink dark:text-brand-blue py-3 hover:bg-light-pink/10 dark:hover:bg-brand-blue/10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.6 }}
         >
-          {isSubmitting ? '[ sending... ]' : '[ execute: send_message() ]'}
-        </button>
+          <motion.button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full border border-light-pink dark:border-brand-blue text-light-pink dark:text-brand-blue py-3 hover:bg-light-pink/10 dark:hover:bg-brand-blue/10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-2xl font-medium"
+            whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+            whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+          >
+            {isSubmitting ? '[ sending... ]' : '[ execute: send_message() ]'}
+          </motion.button>
+        </motion.div>
         </form>
-      </div>
+      </motion.div>
     </div>
   )
 }

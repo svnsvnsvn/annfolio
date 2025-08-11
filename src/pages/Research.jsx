@@ -5,18 +5,33 @@ import { motion } from 'framer-motion'
 function Research() {
   return (
     <div className="font-mono max-w-6xl mx-auto">
-      <div className="mb-6 sm:mb-8">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl text-light-pink dark:text-brand-pink mb-2">
-          ## research
-        </h1>
-        <p className="text-sm sm:text-base text-light-text-secondary dark:text-dark-text-secondary">
+      <motion.div 
+        className="mb-6 sm:mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, type: "spring", stiffness: 150 }}
+      >
+        <motion.h1 
+          className="text-2xl sm:text-3xl md:text-4xl text-light-pink dark:text-brand-pink mb-2 font-medium"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.8, type: "spring", stiffness: 200, damping: 15 }}
+        >
+          research
+        </motion.h1>
+        <motion.p 
+          className="text-sm sm:text-base text-light-text-secondary dark:text-dark-text-secondary"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.6, type: "spring", stiffness: 150 }}
+        >
             <span className="text-brand-blue">svn@localhost</span>
             <span className="mx-1 text-light-text-muted dark:text-dark-text-muted">❯</span>
             <span className="text-light-pink dark:text-brand-pink">~/annfolio/research</span>
             <span className="mx-1 text-light-text-muted dark:text-dark-text-muted">❯</span>
             ls -la <BlinkingCursor />
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       <div className="space-y-4 sm:space-y-6">
         {research.map((item, index) => (
@@ -26,21 +41,28 @@ function Research() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
               duration: 0.5, 
-              delay: index * 0.1,
-              ease: "easeOut"
+              delay: 0.6 + (index * 0.1),
+              type: "spring",
+              stiffness: 150,
+              damping: 15
             }}
             whileHover={{ 
+              scale: 1.02,
               y: -4,
-              transition: { duration: 0.2 }
+              transition: { 
+                type: "spring",
+                stiffness: 400,
+                damping: 15
+              }
             }}
-            className="bg-light-card dark:bg-dark-card border border-light-hover dark:border-dark-surface p-4 sm:p-6 hover:border-light-pink dark:hover:border-brand-pink transition-colors duration-300 rounded-lg hover:shadow-lg"
+            className="bg-light-card dark:bg-dark-card border border-light-hover dark:border-dark-surface p-4 sm:p-6 hover:border-light-pink dark:hover:border-brand-pink transition-colors duration-300 rounded-2xl hover:shadow-lg"
           >
             <div className="mb-3 sm:mb-4">
-              <h3 className="text-lg sm:text-xl text-light-pink dark:text-brand-pink mb-1">
-                ### {item.title}
+              <h3 className="text-lg sm:text-xl text-light-pink dark:text-brand-pink mb-1 font-medium">
+                {item.title}
               </h3>
               <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
-                {`// Research ${index + 1}`}
+                {`Research ${index + 1}`}
               </p>
             </div>
 
@@ -53,30 +75,30 @@ function Research() {
             </p>
 
             <div className="mb-3 sm:mb-4">
-              <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">tags: </span>
-              <div className="inline-flex flex-wrap gap-1 sm:gap-2">
-                {item.tags.map((tag, i) => (
-                  <span key={tag} className="inline-flex items-center">
-                    <span className="text-xs sm:text-sm text-light-blue dark:text-brand-blue">
-                      {tag}
-                    </span>
-                    {i < item.tags.length - 1 && (
-                      <span className="text-light-text-muted dark:text-dark-text-muted ml-1 sm:ml-2">, </span>
-                    )}
+              <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted mb-2 block">tags:</span>
+              <div className="flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <span 
+                    key={tag} 
+                    className="px-3 py-1 bg-light-blue/20 dark:bg-brand-blue/20 text-light-blue dark:text-brand-blue rounded-full text-xs font-medium"
+                  >
+                    {tag}
                   </span>
                 ))}
               </div>
             </div>
 
             {item.link && (
-              <a
+              <motion.a
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-light-purple dark:text-brand-blue hover:underline text-sm"
+                className="inline-flex items-center px-4 py-2 bg-light-purple/20 dark:bg-brand-blue/20 text-light-purple dark:text-brand-blue hover:bg-light-purple/30 dark:hover:bg-brand-blue/30 transition-all duration-300 rounded-full text-sm font-medium"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Link: {item.link}
-              </a>
+                View Research →
+              </motion.a>
             )}
           </motion.div>
         ))}
