@@ -44,28 +44,28 @@ function RotatingInterest() {
 function Home() {
   return (
     <main className="min-h-[80vh] flex items-center justify-center font-mono">
-      <div className="max-w-2xl mx-auto px-6">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6">
         {/* Terminal header */}
-        <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl text-light-pink dark:text-brand-pink mb-3 font-medium">
+        <header className="mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-light-pink dark:text-brand-pink mb-3 font-medium">
             <span className="sr-only">Ann Ubaka's Portfolio - </span># svnsvnsvn
           </h1>
-          <p className="text-light-text-secondary dark:text-dark-text-secondary flex items-center text-sm" role="banner" aria-label="Terminal prompt showing current location in the 'filesystem'">
+          <p className="text-light-text-secondary dark:text-dark-text-secondary flex items-center text-xs sm:text-sm" role="banner" aria-label="Terminal prompt showing current location in the 'filesystem'">
             <span className="text-brand-blue">svn@localhost</span>
-            <span className="mx-2 text-light-text-muted dark:text-dark-text-muted" aria-hidden="true">❯</span>
+            <span className="mx-1 sm:mx-2 text-light-text-muted dark:text-dark-text-muted" aria-hidden="true">❯</span>
             <span className="text-light-pink dark:text-brand-pink">~/annfolio</span>
-            <span className="mx-2 text-light-text-muted dark:text-dark-text-muted" aria-hidden="true">❯</span>
+            <span className="mx-1 sm:mx-2 text-light-text-muted dark:text-dark-text-muted" aria-hidden="true">❯</span>
             <span>welcome</span> <span aria-hidden="true"><BlinkingCursor /></span>
           </p>
         </header>
 
         {/* Bio */}
-        <section className="space-y-6 mb-12 text-light-text-secondary dark:text-dark-text-secondary leading-relaxed" aria-labelledby="bio-heading">
+        <section className="space-y-4 sm:space-y-6 mb-8 sm:mb-12 text-light-text-secondary dark:text-dark-text-secondary leading-relaxed" aria-labelledby="bio-heading">
           <h2 id="bio-heading" className="sr-only">About Ann Ubaka</h2>
-          <p className="text-light-text-primary dark:text-dark-text-primary text-xl font-light">
+          <p className="text-light-text-primary dark:text-dark-text-primary text-lg sm:text-xl font-light">
             Hello :)
           </p>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
             <p>
               My name is <span className="text-light-pink dark:text-brand-pink font-medium">/Ann Ubaka/</span>.<br />
               I'm a computer science student @ Jacksonville University.
@@ -83,7 +83,7 @@ function Home() {
         <nav className="flex flex-col sm:flex-row gap-3" aria-label="Main navigation">
           <Link
             to="/projects"
-            className="inline-block border border-light-pink dark:border-brand-pink text-light-pink dark:text-brand-pink px-8 py-4 hover:bg-light-pink/10 dark:hover:bg-brand-pink/10 transition-all duration-300 text-center hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] rounded-lg"
+            className="inline-block border border-light-pink dark:border-brand-pink text-light-pink dark:text-brand-pink px-6 sm:px-8 py-3 sm:py-4 hover:bg-light-pink/10 dark:hover:bg-brand-pink/10 transition-all duration-300 text-center hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] rounded-lg text-sm sm:text-base"
             aria-label="View my projects and work portfolio"
             showSweep={false}
           >
@@ -91,7 +91,7 @@ function Home() {
           </Link>
           <Link
             to="/contact"
-            className="inline-block border border-light-text-secondary dark:border-dark-text-secondary text-light-text-secondary dark:text-dark-text-secondary px-8 py-4 hover:bg-light-hover dark:hover:bg-dark-hover transition-all duration-300 text-center hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] rounded-lg"
+            className="inline-block border border-light-text-secondary dark:border-dark-text-secondary text-light-text-secondary dark:text-dark-text-secondary px-6 sm:px-8 py-3 sm:py-4 hover:bg-light-hover dark:hover:bg-dark-hover transition-all duration-300 text-center hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] rounded-lg text-sm sm:text-base"
             aria-label="Contact me via email form"
             showSweep={false}
           >

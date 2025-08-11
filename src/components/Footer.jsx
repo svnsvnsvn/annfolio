@@ -31,21 +31,22 @@ function Footer() {
   return (
     <footer className="bg-light-surface dark:bg-dark-surface border-t border-light-hover dark:border-dark-surface py-8 mt-12 font-mono transition-colors duration-300">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center relative">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           {/* Toro Footer Friend */}
-          <div className="absolute left-0 top-0 md:relative md:left-auto md:top-auto mb-4 md:mb-0">
+          <div className="order-2 sm:order-1">
             <img 
               src={toroGifs[currentToroGif]} 
               alt="Toro companion" 
-              className="w-8 h-8 md:w-10 md:h-10 opacity-70 hover:opacity-100 transition-opacity duration-300"
+              className="w-8 h-8 sm:w-10 sm:h-10 opacity-70 hover:opacity-100 transition-opacity duration-300"
               style={{ imageRendering: 'pixelated' }}
             />
           </div>
           
-          <p className="mb-4 md:mb-0 text-light-text-muted dark:text-dark-text-muted text-sm">
+          <p className="order-1 sm:order-2 text-center text-light-text-muted dark:text-dark-text-muted text-xs sm:text-sm">
              © 2025 svnsvnsvn. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-sm">
+          
+          <div className="order-3 flex space-x-4 sm:space-x-6 text-xs sm:text-sm">
             {links.map((link, index) => (
               <span key={link.name}>
                 <a 
@@ -56,7 +57,7 @@ function Footer() {
                   {link.name}
                 </a>
                 {index < links.length - 1 && 
-                  <span className="text-light-text-muted dark:text-dark-text-muted ml-6">|</span>
+                  <span className="text-light-text-muted dark:text-dark-text-muted ml-4 sm:ml-6">|</span>
                 }
               </span>
             ))}

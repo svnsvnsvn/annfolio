@@ -1,9 +1,26 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect, useContext } from 'react'
 
 const ThemeContext = createContext()
 const CommandPaletteContext = createContext()
 
 export { ThemeContext, CommandPaletteContext }
+
+// Custom hooks
+export function useTheme() {
+  const context = useContext(ThemeContext)
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider')
+  }
+  return context
+}
+
+export function useCommandPalette() {
+  const context = useContext(CommandPaletteContext)
+  if (!context) {
+    throw new Error('useCommandPalette must be used within a CommandPaletteProvider')
+  }
+  return context
+}
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {

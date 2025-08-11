@@ -2,21 +2,21 @@ import BlinkingCursor from "../components/BlinkingCursor"
 
 function About() {
   return (
-    <div className="max-w-2xl mx-auto font-mono px-6">
-      <div className="mb-12">
-        <h1 className="text-3xl md:text-4xl text-light-pink dark:text-brand-pink mb-3 font-medium">
+    <div className="max-w-4xl mx-auto font-mono px-4 sm:px-6">
+      <div className="mb-8 sm:mb-12">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl text-light-pink dark:text-brand-pink mb-3 font-medium">
           ## about me
         </h1>
-        <p className="text-light-text-secondary dark:text-dark-text-secondary text-sm">
+        <p className="text-sm sm:text-base text-light-text-secondary dark:text-dark-text-secondary">
           <span className="text-brand-blue">svn@localhost</span>
-          <span className="mx-2 text-light-text-muted dark:text-dark-text-muted">❯</span>
+          <span className="mx-1 sm:mx-2 text-light-text-muted dark:text-dark-text-muted">❯</span>
           <span className="text-light-pink dark:text-brand-pink">~/annfolio/about</span>
-          <span className="mx-2 text-light-text-muted dark:text-dark-text-muted">❯</span>
+          <span className="mx-1 sm:mx-2 text-light-text-muted dark:text-dark-text-muted">❯</span>
           cat README.md <BlinkingCursor />
         </p>
       </div>
 
-      <div className="space-y-12 text-light-text-secondary dark:text-dark-text-secondary leading-relaxed">
+      <div className="space-y-8 sm:space-y-12 text-light-text-secondary dark:text-dark-text-secondary leading-relaxed">
 
         {/* Intro */}
         <section>

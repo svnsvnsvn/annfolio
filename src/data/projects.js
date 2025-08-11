@@ -12,14 +12,14 @@ export const projects = [
       "Automated Web Scraping",
       "Advanced Feature Engineering",
       "Geospatial & Text Analysis",
-      "Full-Stack Deployment"
+      "Full-Stack"
     ]
   },
   {
     id: 2,
     title: "Bin Buddy",
     description:
-      "Created a lightweight waste classification model using MobileNetV2 and TensorFlow for real-time recycling guidance. Optimized for mobile deployment with 95%+ accuracy on common household items.",
+      "",
     github: "https://github.com/svnsvnsvn/RecyclingClassifier",
     demo: null,
     tags: ["TensorFlow", "MobileNetV2", "Image Classification"],

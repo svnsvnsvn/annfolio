@@ -167,26 +167,26 @@ function CommandPalette() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed top-[20%] left-1/2 transform -translate-x-1/2 w-full max-w-lg mx-4"
+            className="fixed inset-x-4 sm:inset-x-auto sm:left-1/2 sm:transform sm:-translate-x-1/2 top-[10%] sm:top-[20%] w-auto sm:w-full max-w-lg sm:mx-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <Command className="bg-light-card dark:bg-dark-card border border-light-hover dark:border-dark-surface rounded-lg shadow-2xl overflow-hidden font-mono">
-              <div className="flex items-center border-b border-light-hover dark:border-dark-surface px-4">
+              <div className="flex items-center border-b border-light-hover dark:border-dark-surface px-3 sm:px-4">
                 <Terminal className="w-4 h-4 text-light-text-muted dark:text-dark-text-muted mr-2" />
                 <Command.Input
                   ref={inputRef}
                   value={searchValue}
                   onValueChange={setSearchValue}
-                  placeholder="Type a command or search..."
-                  className="flex-1 bg-transparent py-3 px-2 text-light-text-primary dark:text-dark-text-primary placeholder:text-light-text-muted dark:placeholder:text-dark-text-muted outline-none"
+                  placeholder="Type a command..."
+                  className="flex-1 bg-transparent py-3 px-2 text-sm sm:text-base text-light-text-primary dark:text-dark-text-primary placeholder:text-light-text-muted dark:placeholder:text-dark-text-muted outline-none"
                 />
                 <kbd className="hidden sm:inline-block px-2 py-1 text-xs text-light-text-muted dark:text-dark-text-muted bg-light-hover dark:bg-dark-surface rounded-lg">
                   ESC
                 </kbd>
               </div>
               
-              <Command.List className="max-h-80 overflow-y-auto p-2">
-                <Command.Empty className="py-6 text-center text-light-text-muted dark:text-dark-text-muted">
+              <Command.List className="max-h-60 sm:max-h-80 overflow-y-auto p-2">
+                <Command.Empty className="py-4 sm:py-6 text-center text-sm text-light-text-muted dark:text-dark-text-muted">
                   No results found.
                 </Command.Empty>
 
@@ -220,14 +220,16 @@ function CommandPalette() {
                         onSelect={() => runCommand(() => {
                           if (project.github) {
                             window.open(project.github, '_blank')
+                          } else {
+                            console.log(`No GitHub link available for ${project.title}`)
                           }
                         })}
                         className="flex items-center gap-3 px-3 py-2 text-sm text-light-text-secondary dark:text-dark-text-secondary rounded-lg hover:bg-light-hover dark:hover:bg-dark-surface cursor-pointer data-[selected=true]:bg-light-hover dark:data-[selected=true]:bg-dark-surface"
                       >
                         <ExternalLink className="h-4 w-4" />
-                        <span className="flex-1">{project.title}</span>
+                        <span className="flex-1 truncate">{project.title}</span>
                         <span className="text-xs bg-light-pink/20 dark:bg-brand-pink/20 text-light-pink dark:text-brand-pink px-2 py-1 rounded-lg">
-                          {index + 1}
+                          ⌘{index + 1}
                         </span>
                       </Command.Item>
                     ))}
