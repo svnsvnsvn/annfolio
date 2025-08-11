@@ -51,6 +51,7 @@ function Footer() {
                 <a 
                   href={link.url} 
                   className="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-pink dark:hover:text-brand-pink transition-colors"
+                  target='_blank'
                 >
                   {link.name}
                 </a>
