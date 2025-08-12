@@ -113,11 +113,17 @@ function ProjectSearch({ projects, onFilteredProjects }) {
       <AnimatePresence>
         {showFilters && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="border border-light-hover dark:border-dark-surface rounded-lg p-4 bg-light-card dark:bg-dark-card"
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            exit={{ opacity: 0, scaleY: 0 }}
+            transition={{ 
+              duration: 0.3,
+              type: "spring",
+              stiffness: 300,
+              damping: 30
+            }}
+            style={{ transformOrigin: "top" }}
+            className="border border-light-hover dark:border-dark-surface rounded-lg p-4 bg-light-card dark:bg-dark-card overflow-hidden"
           >
             <div className="space-y-3">
               <h3 className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">

@@ -5,7 +5,7 @@ export const research = [
     description:
       "Designed adversarial pipelines using NVIDIA Pix2Pix to evaluate the robustness of YOLO-P in autonomous driving scenarios. Presented findings at the Mid-SURE 2024 research symposium.",
     venue: "Mid-SURE Conference, Michigan State University (2024)",
-    link: "", // link to poster or writeup if hosted
+    link: "https://github.com/svnsvnsvn/REU-2024-YOLOP",
     tags: ["Adversarial ML", "YOLO-P", "Pix2Pix", "Autonomous Vehicles"]
   },
   {

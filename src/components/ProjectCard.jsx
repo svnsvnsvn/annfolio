@@ -76,22 +76,13 @@ function ProjectCard({ project, index }) {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, tagIndex) => (
-            <motion.span
+          {project.tags.map((tag) => (
+            <span
               key={tag}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              whileHover={{ scale: 1.05, y: -1 }}
-              transition={{ 
-                delay: (index * 0.1) + (tagIndex * 0.03),
-                type: "spring",
-                stiffness: 400,
-                damping: 15
-              }}
               className="px-3 py-1.5 bg-light-pink/20 dark:bg-brand-pink/20 text-light-pink dark:text-brand-pink rounded-full text-xs hover:bg-light-pink/30 dark:hover:bg-brand-pink/30 transition-all duration-200 cursor-default"
             >
               {tag}
-            </motion.span>
+            </span>
           ))}
         </div>
 

@@ -3,18 +3,18 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import BlinkingCursor from '../components/BlinkingCursor'
 
-const interests = [
-  "crocheting... I'm working on a blanket for my bed.",
-  'watching 1–3 hour commentary videos on YouTube.',
-  'music (currently obsessed with WILLOW).',
-  'computer vision.',
-  'secure AI.',
-  'ML-enforced intrusion detection.',
-  'security research.'
-]
-
+// Simple rotating interests
 function RotatingInterest() {
   const [index, setIndex] = useState(0)
+
+  const interests = [
+    "crocheting... I'm working on a blanket for my bed.",
+    'watching 1–3 hour commentary videos on YouTube.',
+    'computer vision.',
+    'secure AI.',
+    'ML-enforced intrusion detection.',
+    'security research.'
+  ]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,10 +41,94 @@ function RotatingInterest() {
   )
 }
 
+// Status indicator component (no emojis)
+function StatusIndicator() {
+  const [status, setStatus] = useState('coding')
+
+  const statuses = [
+    { id: 'coding', text: 'Building i/o guard for llms' },
+    { id: 'learning', text: 'Learning ML' },
+    { id: 'researching', text: 'Researching AI security' },
+    { id: 'available', text: 'Open to opportunities' }
+  ]
+
+  const currentStatus = statuses.find(s => s.id === status) || statuses[0]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStatus(prev => {
+        const currentIndex = statuses.findIndex(s => s.id === prev)
+        return statuses[(currentIndex + 1) % statuses.length].id
+      })
+    }, 6000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <motion.div
+      className="flex items-center gap-2 mb-4"
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 1.2, duration: 0.6 }}
+      aria-label="Current status"
+    >
+      <motion.div
+        className="text-lg text-light-pink dark:text-brand-pink"
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        aria-hidden="true"
+      >
+        ♥
+      </motion.div>
+      <span className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
+        {currentStatus.text}
+      </span>
+    </motion.div>
+  )
+}
+
+// Floating particles component
+function FloatingParticles() {
+  const particles = Array.from({ length: 6 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    delay: Math.random() * 2,
+    duration: 3 + Math.random() * 4
+  }))
+
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="absolute w-1 h-1 bg-light-blue/20 dark:bg-brand-blue/20 rounded-full"
+          style={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+          }}
+          animate={{
+            y: [0, -100, 0],
+            opacity: [0, 1, 0],
+            scale: [0, 1, 0],
+          }}
+          transition={{
+            duration: particle.duration,
+            delay: particle.delay,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
 function Home() {
   return (
-    <main className="min-h-[80vh] flex items-center justify-center font-mono">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6">
+    <main className="min-h-[80vh] flex items-center justify-center font-mono relative">
+      <FloatingParticles />
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Terminal header */}
         <motion.header 
           className="mb-8 sm:mb-12"
@@ -82,10 +166,19 @@ function Home() {
           aria-labelledby="bio-heading"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8, type: "spring", stiffness: 120, damping: 15 }}
-          whileHover={{ scale: 1.02 }}
+          transition={{ delay: 0.6, duration: 0.8, type: "spring", stiffness: 200, damping: 15 }}
+          whileHover={{ 
+            scale: 1.02,
+            y: -4,
+            transition: { 
+              type: "spring",
+              stiffness: 400,
+              damping: 15
+            }
+          }}
         >
           <h2 id="bio-heading" className="sr-only">About Ann Ubaka</h2>
+          <StatusIndicator />
           <motion.p 
             className="text-light-text-primary dark:text-dark-text-primary text-lg sm:text-xl font-light"
             initial={{ opacity: 0 }}
@@ -115,7 +208,7 @@ function Home() {
 
         {/* Buttons */}
         <motion.nav 
-          className="flex flex-col sm:flex-row gap-3" 
+          className="flex flex-col sm:flex-row gap-3 justify-center" 
           aria-label="Main navigation"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
