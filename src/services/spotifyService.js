@@ -2,7 +2,11 @@
 
 const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID
 const CLIENT_SECRET = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
-const REDIRECT_URI = import.meta.env.VITE_SPOTIFY_REDIRECT_URI
+
+// Automatically choose redirect URI based on environment
+const REDIRECT_URI = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+  ? import.meta.env.VITE_SPOTIFY_REDIRECT_URI_DEV
+  : import.meta.env.VITE_SPOTIFY_REDIRECT_URI_PROD
 
 const SPOTIFY_API_BASE = 'https://api.spotify.com/v1'
 const SPOTIFY_AUTH_BASE = 'https://accounts.spotify.com'

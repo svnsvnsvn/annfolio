@@ -6,7 +6,8 @@
   "description": "Personal portfolio website showcasing projects and research",
   "author": "Ann",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 127.0.0.1",
+    "dev:localhost": "vite",
     "build": "vite build",
     "lint": "eslint . --max-warnings 0",
     "preview": "vite preview"
