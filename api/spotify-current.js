@@ -2,8 +2,19 @@
 // This is what your frontend will call to display your music
 
 export default async function handler(req, res) {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // Enable CORS only for your domain
+  const allowedOrigins = [
+    'https://svn7svn.com',
+    'https://www.svn7svn.com',
+    'http://127.0.0.1:5173', // Local development
+    'http://localhost:5173'   // Alternative local
+  ];
+  
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -13,6 +24,12 @@ export default async function handler(req, res) {
 
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Rate limiting check (simple)
+  const userAgent = req.headers['user-agent'] || '';
+  if (userAgent.includes('bot') || userAgent.includes('crawler')) {
+    return res.status(403).json({ error: 'Bots not allowed' });
   }
 
   try {

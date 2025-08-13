@@ -15,6 +15,17 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Check for admin access - simple protection
+  const { key } = req.query;
+  const expectedKey = process.env.ADMIN_SECRET_KEY || 'default-dev-key-change-in-production';
+  
+  if (key !== expectedKey) {
+    return res.status(403).json({ 
+      error: 'Unauthorized access',
+      hint: 'Admin key required'
+    });
+  }
+
   const { code, error } = req.query;
 
   if (error) {

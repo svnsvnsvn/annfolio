@@ -50,6 +50,8 @@ class SpotifyService {
   // Admin function: Generate auth URL for you to authenticate (one-time setup)
   getAuthUrl() {
     const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+    const ADMIN_KEY = import.meta.env.VITE_ADMIN_SECRET_KEY;
+    
     const scopes = [
       'user-read-currently-playing',
       'user-read-recently-played',
@@ -59,7 +61,7 @@ class SpotifyService {
     const params = new URLSearchParams({
       client_id: CLIENT_ID,
       response_type: 'code',
-      redirect_uri: `${API_BASE}/spotify-auth`,
+      redirect_uri: `${API_BASE}/spotify-auth?key=${ADMIN_KEY}`,
       scope: scopes,
       show_dialog: 'true'
     });
