@@ -47,7 +47,7 @@ export const projects = [
     demo: null,
     tags: ["React", "Framer Motion", "Interaction Design", "User Feedback"],
     highlights: ["UI/UX Design", "User Research", "Interactive Animations"],
-    // mockup: ""
+    mockup: "/project-mockups/hmp.svg"
   },
   {
     id: 5,
