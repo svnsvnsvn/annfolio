@@ -4,6 +4,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CommandPalette from './components/CommandPalette'
+import SpotifyWidget from './components/SpotifyWidget'
 import ToroLoader from './components/ToroLoader'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
@@ -41,6 +42,7 @@ function App() {
         </main>
         <Footer />
         <CommandPalette />
+        <SpotifyWidget />
       </div>
     </ThemeProvider>
   )

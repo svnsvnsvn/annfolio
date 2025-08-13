@@ -2,7 +2,6 @@ import Link from '../components/Link'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import BlinkingCursor from '../components/BlinkingCursor'
-import SpotifyWidget from '../components/SpotifyWidget'
 
 function RotatingInterest() {
   const [index, setIndex] = useState(0)
@@ -244,9 +243,6 @@ function Home() {
           </motion.div>
         </motion.nav>
       </div>
-      
-      {/* Floating Spotify Widget */}
-      <SpotifyWidget />
     </main>
   )
 }
