@@ -18,10 +18,10 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Bin Buddy",
+    title: "Gather",
     description:
       "",
-    github: "https://github.com/svnsvnsvn/RecyclingClassifier",
+    github: "https://github.com/svnsvnsvn/Gather",
     demo: null,
     tags: ["TensorFlow", "MobileNetV2", "Image Classification"],
     highlights: ["Computer Vision", "Mobile Optimization", "Environmental Tech"],
