@@ -1,13 +1,30 @@
 // Simplified Spotify service - now calls your backend instead of Spotify directly
 
+// For local development, you can either:
+// 1. Use vercel dev (requires login)
+// 2. Deploy to production and test there
+// 3. Return mock data for local testing
+
 const API_BASE = process.env.NODE_ENV === 'production' 
   ? 'https://svn7svn.com/api' 
-  : 'http://localhost:3000/api';
+  : 'https://svn7svn.com/api'; // Use production API even in dev for now
 
 class SpotifyService {
   // Get your current track from your backend (no auth needed for visitors)
   async getCurrentTrack() {
     try {
+      // For local development without backend, return mock data
+      if (process.env.NODE_ENV === 'development' && !window.location.hostname.includes('svn7svn.com')) {
+        return {
+          name: "Mock Song",
+          artist: "Test Artist", 
+          album: "Development Album",
+          albumArt: null,
+          isPlaying: true,
+          spotifyUrl: null
+        };
+      }
+
       const response = await fetch(`${API_BASE}/spotify-current`);
       
       if (!response.ok) {
@@ -18,7 +35,15 @@ class SpotifyService {
       return data.track;
     } catch (error) {
       console.error('Error fetching current track:', error);
-      return null;
+      // Return mock data as fallback
+      return {
+        name: "Unable to load",
+        artist: "Spotify connection needed", 
+        album: "Check backend setup",
+        albumArt: null,
+        isPlaying: false,
+        spotifyUrl: null
+      };
     }
   }
 
