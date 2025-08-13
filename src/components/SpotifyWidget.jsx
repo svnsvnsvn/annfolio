@@ -5,38 +5,13 @@ import spotifyService from '../services/spotifyService'
 function SpotifyWidget() {
   const [currentTrack, setCurrentTrack] = useState(null)
   const [isExpanded, setIsExpanded] = useState(false)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
-  // Fetch current track from Spotify
+  // Fetch current track from your backend (no authentication needed)
   const fetchCurrentTrack = async () => {
     try {
-      // Try to get currently playing first
-      let data = await spotifyService.getCurrentlyPlaying()
-      
-      // If nothing currently playing, get recently played
-      if (!data || !data.item) {
-        const recentData = await spotifyService.getRecentlyPlayed(1)
-        if (recentData?.items?.[0]) {
-          data = {
-            item: recentData.items[0].track,
-            is_playing: false // Recently played, not currently playing
-          }
-        }
-      }
-
-      if (data?.item) {
-        const track = {
-          name: data.item.name,
-          artist: data.item.artists[0]?.name || 'Unknown Artist',
-          album: data.item.album?.name || 'Unknown Album',
-          albumArt: data.item.album?.images?.[0]?.url || null,
-          isPlaying: data.is_playing || false
-        }
-        setCurrentTrack(track)
-      } else {
-        setCurrentTrack(null)
-      }
+      const track = await spotifyService.getCurrentTrack()
+      setCurrentTrack(track)
     } catch (error) {
       console.error('Error fetching Spotify data:', error)
       setCurrentTrack(null)
@@ -46,60 +21,22 @@ function SpotifyWidget() {
   // Initialize and set up polling
   useEffect(() => {
     const init = async () => {
-      setIsAuthenticated(spotifyService.isAuthenticated())
       setIsLoading(false)
-
-      if (spotifyService.isAuthenticated()) {
-        await fetchCurrentTrack()
-      }
+      await fetchCurrentTrack()
     }
 
     init()
 
-    // Poll for updates every 30 seconds if authenticated
-    let interval
-    if (spotifyService.isAuthenticated()) {
-      interval = setInterval(fetchCurrentTrack, 30000)
-    }
+    // Poll for updates every 30 seconds
+    const interval = setInterval(fetchCurrentTrack, 30000)
 
     return () => {
-      if (interval) clearInterval(interval)
+      clearInterval(interval)
     }
   }, [])
 
-  // Handle Spotify login
-  const handleSpotifyLogin = () => {
-    window.location.href = spotifyService.getAuthUrl()
-  }
-
-  // Don't show widget if not authenticated or no track
-  if (!isAuthenticated) {
-    // Show login option for testing
-    return (
-      <motion.div
-        className="fixed bottom-6 right-6 z-50 font-mono"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 2, duration: 0.6, type: "spring", stiffness: 200 }}
-      >
-        <motion.button
-          onClick={handleSpotifyLogin}
-          className="w-12 h-12 bg-light-card dark:bg-dark-card border border-light-hover dark:border-dark-hover rounded-2xl flex items-center justify-center shadow-lg hover:border-light-pink dark:hover:border-brand-pink transition-all duration-300 cursor-pointer"
-          whileHover={{ 
-            scale: 1.1, 
-            y: -2,
-            transition: { type: "spring", stiffness: 400, damping: 15 }
-          }}
-          whileTap={{ scale: 0.95 }}
-          title="Connect Spotify"
-        >
-          <span className="text-light-text-muted dark:text-dark-text-muted text-lg">♪</span>
-        </motion.button>
-      </motion.div>
-    )
-  }
-
-  if (!currentTrack) {
+  // Don't show widget if no track or still loading
+  if (isLoading || !currentTrack) {
     return null
   }
 

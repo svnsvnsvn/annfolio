@@ -10,7 +10,6 @@ import Projects from './pages/Projects'
 import Research from './pages/Research'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import SpotifyCallback from './pages/SpotifyCallback'
 
 function App() {
   const [isLoading, setIsLoading] = useState(false)
@@ -38,7 +37,6 @@ function App() {
             <Route path="/research" element={<Research />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/callback" element={<SpotifyCallback />} />
           </Routes>
         </main>
         <Footer />
