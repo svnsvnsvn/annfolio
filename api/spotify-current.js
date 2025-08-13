@@ -49,25 +49,12 @@ export default async function handler(req, res) {
 }
 
 async function getAccessToken() {
-  console.log('🔧 DEBUG: Getting access token...');
-  
-  // Check if refresh token exists
   if (!process.env.SPOTIFY_REFRESH_TOKEN) {
-    console.log('🚨 ERROR: SPOTIFY_REFRESH_TOKEN environment variable not found');
-    console.log('Available env vars:', Object.keys(process.env).filter(key => key.startsWith('SPOTIFY_')));
+    console.log('ERROR: SPOTIFY_REFRESH_TOKEN environment variable not found');
     return null;
   }
 
-  console.log('✅ SPOTIFY_REFRESH_TOKEN exists, length:', process.env.SPOTIFY_REFRESH_TOKEN.length);
-
   try {
-    // Debug: Check all required env vars
-    console.log('🔧 DEBUG: Environment variables check:');
-    console.log('CLIENT_ID exists:', !!process.env.SPOTIFY_CLIENT_ID);
-    console.log('CLIENT_SECRET exists:', !!process.env.SPOTIFY_CLIENT_SECRET);
-    console.log('REFRESH_TOKEN exists:', !!process.env.SPOTIFY_REFRESH_TOKEN);
-    console.log('REFRESH_TOKEN starts with:', process.env.SPOTIFY_REFRESH_TOKEN?.substring(0, 10) + '...');
-
     const response = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
@@ -80,25 +67,16 @@ async function getAccessToken() {
       })
     });
 
-    console.log('🔧 DEBUG: Refresh token response status:', response.status);
-
     if (!response.ok) {
       const errorBody = await response.text();
-      console.error('🚨 Token refresh failed. Status:', response.status);
-      console.error('🚨 Response body:', errorBody);
-      throw new Error(`Failed to refresh token: ${response.status} - ${errorBody}`);
+      console.error('Token refresh failed:', response.status, errorBody);
+      throw new Error(`Failed to refresh token: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log('✅ Token refresh successful! New access token received.');
     return data.access_token;
   } catch (error) {
-    console.error('🚨 Token refresh error:', error);
-    console.error('Error details:', {
-      name: error.name,
-      message: error.message,
-      stack: error.stack
-    });
+    console.error('Token refresh error:', error.message);
     return null;
   }
 }
