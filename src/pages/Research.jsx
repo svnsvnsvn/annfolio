@@ -93,7 +93,7 @@ function Research() {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-light-purple/20 dark:bg-brand-blue/20 text-light-purple dark:text-brand-blue hover:bg-light-purple/30 dark:hover:bg-brand-blue/30 transition-all duration-300 rounded-full text-sm font-medium"
+                className="inline-flex items-center px-4 py-2 bg-light-blue/20 dark:bg-brand-blue/20 text-light-blue dark:text-brand-blue hover:bg-light-blue/30 dark:hover:bg-brand-blue/30 transition-all duration-300 rounded-full text-sm font-medium"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
