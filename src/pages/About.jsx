@@ -46,7 +46,7 @@ function About() {
             Introduction
           </h2>
           <p className="text-base leading-relaxed font-sans">
-            I'm a computer science student minoring in data science and cybersecurity, and I'm especially interested in <span className="text-light-blue dark:text-brand-blue font-semibold">AI security</span>. Specifically in how we can make machine learning systems safer and more trustworthy. Outside of tech, I'm a big anime fan <img src="/toro_gifs/bits-8bits-3.gif" alt="Toro" className="inline w-5 h-5 mx-1 opacity-80" style={{ imageRendering: 'pixelated' }} />, I love baking, and lately I've been getting into crocheting. I like building things, whether it's code, bread, or a blanket.
+            I'm a computer science student minoring in data science and cybersecurity, and I'm especially interested in <span className="text-light-blue dark:text-brand-blue font-semibold">computer vision</span> and <span className="text-light-blue dark:text-brand-blue font-semibold">AI security</span>. I love how machines can learn to see and understand visual data, and I'm equally fascinated by keeping those systems secure and reliable. Outside of tech, I'm a big anime fan <img src="/toro_gifs/bits-8bits-3.gif" alt="Toro" className="inline w-5 h-5 mx-1 opacity-80" style={{ imageRendering: 'pixelated' }} />, I love baking, and lately I've been getting into crocheting. I like building things, whether it's code, bread, or a blanket.
           </p>
         </motion.section>
 
@@ -114,7 +114,7 @@ function About() {
                 Date: Summer 2025
               </div>
               <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6 font-sans">
-                GRC intern working on risk management and compliance frameworks. Supporting enterprise security governance and risk assessment processes.
+                GRC intern focusing on AI powered risk automation. Built NLP tools for SOC 2 analysis and vendor risk assessment, while shadowing the AI security team to learn ML architecture and security frameworks. Helped automate repetitive tasks so analysts could focus on critical decision making.
               </div>
             </motion.div>
 
@@ -160,7 +160,7 @@ function About() {
                 Date: 2023 - present
               </div>
               <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6 font-sans">
-                Lead technical workshops on FastAPI, Git, Docker, and ML concepts. Scaled chapter membership from 9 to 30+ students through engaging programming sessions and peer mentorship.
+                Lead technical workshops on FastAPI, Git, Python, and ML concepts. Scaled chapter membership from 9 to 30+ students through engaging programming sessions and peer mentorship.
               </div>
             </motion.div>
 
@@ -202,7 +202,7 @@ function About() {
           </h2>
           <div className="space-y-3 font-sans">
             <p>
-              My research focuses on the <span className="text-light-blue dark:text-brand-blue font-semibold">intersection of AI security and real-world applications</span>. I'm particularly interested in:
+              My research focuses on <span className="text-light-blue dark:text-brand-blue font-semibold">computer vision and AI security</span> — both independently and where they intersect. I'm particularly interested in:
             </p>
             <ul className="ml-6 space-y-2 text-sm">
               <motion.li 

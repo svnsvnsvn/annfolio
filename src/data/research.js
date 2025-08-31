@@ -16,14 +16,5 @@ export const research = [
     venue: "Jacksonville University Research Symposium (2025)",
     link: "https://github.com/svnsvnsvn/florida-crashes", 
     tags: ["ML", "Geospatial", "Transportation Safety"]
-  },
-  {
-    id: 3,
-    title: "Future Work (Placeholder)",
-    description:
-      "Placeholder entry for upcoming publications or poster presentations related to secure AI or trustworthy ML.",
-    venue: "Coming soon",
-    link: "",
-    tags: ["AI Security", "Under Review"]
   }
 ];

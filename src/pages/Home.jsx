@@ -8,17 +8,17 @@ function RotatingInterest() {
 
   const interests = [
     "crocheting... I'm working on a blanket for my bed.",
-    'watching 1–3 hour commentary videos on YouTube.',
-    'computer vision.',
-    'secure AI.',
-    'ML-enforced intrusion detection.',
-    'security research.'
+    'watching cozy YouTube videos (and 3-hour commentary ones).',
+    'The Sims 4 (building cute houses mostly).',
+    'puppet combo horror games (but only watching others play).',
+    'coconut boba slushies.',
+    'baking something sweet when I need a break.'
   ]
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % interests.length)
-    }, 2000)
+    }, 3500) // Slower than status indicator
     return () => clearInterval(interval)
   }, [])
 
@@ -45,8 +45,8 @@ function StatusIndicator() {
   const [status, setStatus] = useState('coding')
 
   const statuses = [
-    { id: 'coding', text: 'Building i/o guard for llms' },
-    { id: 'learning', text: 'Learning ML' },
+    { id: 'learning', text: 'Learning ML architecture concepts' },
+    { id: 'exploring', text: 'Exploring RAG and agent frameworks' },
     { id: 'researching', text: 'Researching AI security' },
     { id: 'available', text: 'Open to opportunities' }
   ]
@@ -59,7 +59,7 @@ function StatusIndicator() {
         const currentIndex = statuses.findIndex(s => s.id === prev)
         return statuses[(currentIndex + 1) % statuses.length].id
       })
-    }, 6000)
+    }, 8000) // Much slower than interests
     return () => clearInterval(interval)
   }, [])
 
@@ -193,11 +193,11 @@ function Home() {
             transition={{ delay: 1.0, duration: 0.6 }}
           >
             <p>
-              My name is <span className="text-light-pink dark:text-brand-pink font-medium font-mono">/Ann Ubaka/</span>.<br />
+              My name is <span className="text-light-pink dark:text-brand-pink font-medium font-mono">Ann Ubaka</span>.<br />
               I'm a computer science student @ Jacksonville University.
             </p>
             <p>
-              I'm interested in the places where <span className="text-light-blue dark:text-brand-blue font-semibold">security</span> and <span className="text-light-blue dark:text-brand-blue font-semibold">machine learning</span> collide — especially when it makes things safer for people.
+              I'm interested in <span className="text-light-blue dark:text-brand-blue font-semibold">computer vision</span> and <span className="text-light-blue dark:text-brand-blue font-semibold">AI security</span> — how machines see and understand the world, and how to keep those systems safe and trustworthy.
             </p>
             <p className="flex gap-2 items-center">
               <span>I like</span> <RotatingInterest />
