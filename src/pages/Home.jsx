@@ -193,7 +193,9 @@ function Home() {
             transition={{ delay: 1.0, duration: 0.6 }}
           >
             <p>
-              My name is <span className="text-light-pink dark:text-brand-pink font-medium font-mono">Ann Ubaka</span>.<br />
+              My name is <span className="text-light-pink dark:text-brand-pink">Ann Ubaka</span>.
+            </p>
+            <p>
               I'm a computer science student @ Jacksonville University.
             </p>
             <p>
