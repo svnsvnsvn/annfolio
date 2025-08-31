@@ -43,7 +43,7 @@ function ProjectCard({ project, index }) {
         </div>
 
         <div className="mb-3 sm:mb-4 flex-1">
-          <p className="text-sm sm:text-base text-light-text-secondary dark:text-dark-text-secondary leading-relaxed">
+          <p className="text-sm sm:text-base text-light-text-secondary dark:text-dark-text-secondary leading-relaxed font-sans">
             {project.description}
           </p>
         </div>

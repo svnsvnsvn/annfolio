@@ -47,8 +47,8 @@ export default {
       },
       // Custom font family
       fontFamily: {
-        'mono': ['Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
-        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'], // Optional: modern sans-serif
+        'mono': ['Space Mono', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+        'sans': ['Quicksand', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       
       // Custom gradient for special elements

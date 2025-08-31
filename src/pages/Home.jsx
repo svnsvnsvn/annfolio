@@ -161,7 +161,7 @@ function Home() {
 
         {/* Bio */}
         <motion.section 
-          className="bg-light-bg/50 dark:bg-dark-surface/30 p-6 sm:p-8 rounded-2xl border border-light-hover dark:border-dark-hover space-y-4 sm:space-y-6 mb-8 sm:mb-12 text-light-text-secondary dark:text-dark-text-secondary leading-relaxed" 
+          className="bg-light-bg/50 dark:bg-dark-surface/30 p-6 sm:p-8 rounded-2xl border border-light-hover dark:border-dark-hover space-y-4 sm:space-y-6 mb-8 sm:mb-12 text-light-text-secondary dark:text-dark-text-secondary leading-relaxed font-sans" 
           aria-labelledby="bio-heading"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -193,7 +193,7 @@ function Home() {
             transition={{ delay: 1.0, duration: 0.6 }}
           >
             <p>
-              My name is <span className="text-light-pink dark:text-brand-pink font-medium">/Ann Ubaka/</span>.<br />
+              My name is <span className="text-light-pink dark:text-brand-pink font-medium font-mono">/Ann Ubaka/</span>.<br />
               I'm a computer science student @ Jacksonville University.
             </p>
             <p>
