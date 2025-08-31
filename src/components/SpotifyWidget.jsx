@@ -118,28 +118,19 @@ function SpotifyWidget() {
     return (r * 299 + g * 587 + b * 114) / 1000
   }
 
-  // Dynamic color scheme with text colors
+  // Dynamic color scheme - only for animated elements
   const getColorScheme = () => {
     if (dominantColor) {
-      const brightness = getBrightness(dominantColor)
-      const isDark = brightness < 128
-      
       return {
         accent: `rgba(${dominantColor}, 0.8)`,
         accentLight: `rgba(${dominantColor}, 0.3)`,
-        accentGlow: `rgba(${dominantColor}, 0.1)`,
-        textPrimary: isDark ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)',
-        textSecondary: isDark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)',
-        textAccent: isDark ? 'rgb(147, 197, 253)' : 'rgb(59, 130, 246)'
+        accentGlow: `rgba(${dominantColor}, 0.1)`
       }
     }
     return {
       accent: 'rgb(236, 72, 153)', 
       accentLight: 'rgba(236, 72, 153, 0.3)',
-      accentGlow: 'rgba(236, 72, 153, 0.1)',
-      textPrimary: undefined, // Use default theme colors
-      textSecondary: undefined,
-      textAccent: undefined
+      accentGlow: 'rgba(236, 72, 153, 0.1)'
     }
   }
 
@@ -161,7 +152,6 @@ function SpotifyWidget() {
         <motion.div
           className="w-14 h-14 backdrop-blur-md bg-light-card/80 dark:bg-dark-card/80 border border-light-hover/50 dark:border-dark-hover/50 rounded-2xl flex items-center justify-center shadow-xl"
           style={{
-            borderColor: dominantColor ? `rgba(${dominantColor}, 0.3)` : undefined,
             boxShadow: `0 8px 32px rgba(0,0,0,0.1), 0 0 20px ${colors.accentGlow}`
           }}
           whileHover={{ 
@@ -199,12 +189,6 @@ function SpotifyWidget() {
           {isExpanded && (
             <motion.div
               className="absolute bottom-16 right-0 backdrop-blur-md bg-light-card/90 dark:bg-dark-card/90 border border-light-hover/50 dark:border-dark-hover/50 rounded-3xl p-5 shadow-2xl min-w-[320px]"
-              style={{
-                borderColor: dominantColor ? `rgba(${dominantColor}, 0.3)` : undefined,
-                background: dominantColor 
-                  ? `linear-gradient(135deg, rgba(${dominantColor}, 0.1) 0%, rgba(0,0,0,0.8) 100%)`
-                  : undefined
-              }}
               initial={{ opacity: 0, y: 10, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.9 }}
@@ -226,8 +210,7 @@ function SpotifyWidget() {
                   } : {}}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
-                <span className="text-xs tracking-wide"
-                  style={{ color: colors.textSecondary || undefined }}>
+                <span className="text-xs tracking-wide text-light-text-secondary dark:text-dark-text-secondary">
                   {getBrandingMessage()}
                 </span>
               </motion.div>
@@ -270,8 +253,7 @@ function SpotifyWidget() {
                 {/* Track details */}
                 <div className="min-w-0 flex-1">
                   <motion.div 
-                    className="font-medium text-base mb-1 truncate"
-                    style={{ color: colors.textPrimary || undefined }}
+                    className="text-light-text-primary dark:text-dark-text-primary font-medium text-base mb-1 truncate"
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
@@ -280,8 +262,7 @@ function SpotifyWidget() {
                   </motion.div>
                   
                   <motion.div 
-                    className="text-sm mb-2 truncate"
-                    style={{ color: colors.textAccent || undefined }}
+                    className="text-light-blue dark:text-brand-blue text-sm mb-2 truncate"
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
@@ -290,8 +271,7 @@ function SpotifyWidget() {
                   </motion.div>
                   
                   <motion.div 
-                    className="text-xs truncate"
-                    style={{ color: colors.textSecondary || undefined }}
+                    className="text-light-text-secondary dark:text-dark-text-secondary text-xs truncate"
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 }}
@@ -325,8 +305,7 @@ function SpotifyWidget() {
                         />
                       ))}
                     </div>
-                    <span className="text-xs"
-                      style={{ color: colors.textSecondary || undefined }}>
+                    <span className="text-light-text-muted dark:text-dark-text-muted text-xs">
                       {currentTrack.isPlaying ? 'now playing' : 'last played'}
                     </span>
                   </motion.div>
