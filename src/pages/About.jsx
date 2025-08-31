@@ -45,7 +45,7 @@ function About() {
           <h2 className="text-xl text-light-pink dark:text-brand-pink mb-6 font-medium">
             Introduction
           </h2>
-          <p className="text-base leading-relaxed">
+          <p className="text-base leading-relaxed font-sans">
             I'm a computer science student minoring in data science and cybersecurity, and I'm especially interested in <span className="text-light-blue dark:text-brand-blue font-semibold">AI security</span>. Specifically in how we can make machine learning systems safer and more trustworthy. Outside of tech, I'm a big anime fan <img src="/toro_gifs/bits-8bits-3.gif" alt="Toro" className="inline w-5 h-5 mx-1 opacity-80" style={{ imageRendering: 'pixelated' }} />, I love baking, and lately I've been getting into crocheting. I like building things, whether it's code, bread, or a blanket.
           </p>
         </motion.section>
@@ -90,7 +90,7 @@ function About() {
                 <div className="text-xs text-light-text-muted dark:text-dark-text-muted mt-1 ml-6">
                   Date: Jan 2025 - Dec 2026
                 </div>
-                <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6">
+                <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6 font-sans">
                   Year-long ML program with industry mentorship. Completed ML Foundations and currently working on real-world AI Studio project with career coaching and technical mentorship.
                 </div>
             </motion.div>
@@ -113,7 +113,7 @@ function About() {
               <div className="text-xs text-light-text-muted dark:text-dark-text-muted mt-1 ml-6">
                 Date: Summer 2025
               </div>
-              <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6">
+              <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6 font-sans">
                 GRC intern working on risk management and compliance frameworks. Supporting enterprise security governance and risk assessment processes.
               </div>
             </motion.div>
@@ -136,7 +136,7 @@ function About() {
               <div className="text-xs text-light-text-muted dark:text-dark-text-muted mt-1 ml-6">
                 Date: Summer 2024
               </div>
-              <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6">
+              <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6 font-sans">
                 Built adversarial attack pipelines to evaluate YOLO-P robustness in autonomous vehicle contexts. Researched ML security vulnerabilities in safety-critical systems.
               </div>
             </motion.div>
@@ -159,7 +159,7 @@ function About() {
               <div className="text-xs text-light-text-muted dark:text-dark-text-muted mt-1 ml-6">
                 Date: 2023 - present
               </div>
-              <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6">
+              <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6 font-sans">
                 Lead technical workshops on FastAPI, Git, Docker, and ML concepts. Scaled chapter membership from 9 to 30+ students through engaging programming sessions and peer mentorship.
               </div>
             </motion.div>
@@ -182,7 +182,7 @@ function About() {
               <div className="text-xs text-light-text-muted dark:text-dark-text-muted mt-1 ml-6">
                 Date: 2023 - present
               </div>
-              <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6">
+              <div className="text-light-text-secondary dark:text-dark-text-secondary mt-2 ml-6 font-sans">
                 Automated data reconciliation workflows using Python and Power Automate. Improved process efficiency and reduced manual errors in student record management.
               </div>
             </motion.div>
@@ -200,7 +200,7 @@ function About() {
           <h2 className="text-xl text-light-pink dark:text-brand-pink mb-4 font-medium">
             Research Interests
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-3 font-sans">
             <p>
               My research focuses on the <span className="text-light-blue dark:text-brand-blue font-semibold">intersection of AI security and real-world applications</span>. I'm particularly interested in:
             </p>
@@ -211,7 +211,7 @@ function About() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.7, duration: 0.5 }}
               >
-                <span className="text-light-pink dark:text-brand-pink mr-2">→</span>
+                <span className="text-light-pink dark:text-brand-pink mr-2 font-mono">→</span>
                 <span><strong>Adversarial ML:</strong> Understanding and defending against attacks on ML systems in safety-critical domains</span>
               </motion.li>
               <motion.li 
@@ -220,7 +220,7 @@ function About() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.8, duration: 0.5 }}
               >
-                <span className="text-light-pink dark:text-brand-pink mr-2">→</span>
+                <span className="text-light-pink dark:text-brand-pink mr-2 font-mono">→</span>
                 <span><strong>Computer Vision Security:</strong> Robustness evaluation of object detection models for autonomous systems</span>
               </motion.li>
               <motion.li 
@@ -229,7 +229,7 @@ function About() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.9, duration: 0.5 }}
               >
-                <span className="text-light-pink dark:text-brand-pink mr-2">→</span>
+                <span className="text-light-pink dark:text-brand-pink mr-2 font-mono">→</span>
                 <span><strong>ML-Enhanced Cybersecurity:</strong> Using machine learning for intrusion detection and anomaly identification</span>
               </motion.li>
               <motion.li 
@@ -238,7 +238,7 @@ function About() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 2.0, duration: 0.5 }}
               >
-                <span className="text-light-pink dark:text-brand-pink mr-2">→</span>
+                <span className="text-light-pink dark:text-brand-pink mr-2 font-mono">→</span>
                 <span><strong>Secure AI Deployment:</strong> Building robust, reliable AI systems for production environments</span>
               </motion.li>
             </ul>
