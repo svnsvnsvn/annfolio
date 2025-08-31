@@ -77,14 +77,14 @@ export const projects = [
   },
     {
     id: 7,
-    title: "ACM Workshop Series",
+    title: "ACM Workshop Series (Materials Coming Soon)",
     description:
-      "Led comprehensive technical workshops on FastAPI, Git, Docker, and machine learning concepts for 20+ students per session. Created hands on curriculum and interactive coding exercises.",
-    github: "https://github.com/svnsvnsvn",
+      "Led technical workshops on FastAPI, Python, and machine learning concepts for 20+ students per session as ACM chapter officer. Developed interactive curriculum with coding exercises and presentations. Currently compiling workshop materials for public access.",
+    github: null,
     demo: null,
-    tags: ["Teaching", "Python", "FastAPI", "Git", "Docker"],
-    highlights: ["Technical Education", "Leadership", "Curriculum Design"],
-    // mockup: ""
+    tags: ["Teaching", "Leadership", "Python", "FastAPI", "Git", "NLP", "Curriculum"],
+    highlights: ["Technical Education", "Student Mentorship", "Workshop Development"],
+    mockup: null
   }
 
 ];
