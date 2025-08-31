@@ -66,17 +66,28 @@ export const projects = [
   },
   {
     id: 6,
-    title: "BTT AI Studio Project (Coming Soon)",
+    title: "Power Outage Prediction Model (BTT Fall)",
     description:
-      "As a Break Through Tech AI Fellow, I'm collaborating on a machine learning project with industry mentorship. Final project will showcase production ML deployment and career impact.",
-    github: "",
+      "As a Break Through Tech AI Fellow, collaborating with Abt Global (https://www.abtassociates.com) to build an AI model predicting electrical power outages using National Weather Service API and National Hurricane Center data. Working on data merging, API integration, and classification modeling to identify areas needing infrastructure intervention.",
+    github: null,
     demo: null,
-    tags: ["ML", "AI Studio", "Break Through Tech", "WIP"],
+    tags: ["ML", "APIs", "Data Science", "Classification", "Break Through Tech", "WIP"],
+    highlights: ["Industry Mentorship", "Weather Data Analysis", "Infrastructure Planning"],
+    mockup: null
+  },
+  {
+    id: 7,
+    title: "BTT AI Studio Project (Spring 2025)",
+    description:
+      "Second semester Break Through Tech AI Fellowship project with industry partner. Details and company partner to be announced.",
+    github: null,
+    demo: null,
+    tags: ["ML", "Break Through Tech", "Industry Partnership", "TBA"],
     highlights: ["Industry Mentorship", "Production ML", "Career Development"],
-    // mockup: ""
+    mockup: null
   },
     {
-    id: 7,
+    id: 8,
     title: "ACM Workshop Series (Materials Coming Soon)",
     description:
       "Led technical workshops on FastAPI, Python, and machine learning concepts for 20+ students per session as ACM chapter officer. Developed interactive curriculum with coding exercises and presentations. Currently compiling workshop materials for public access.",
