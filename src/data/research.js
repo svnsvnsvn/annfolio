@@ -12,9 +12,9 @@ export const research = [
     id: 2,
     title: "Florida Work Zone Crash Analysis",
     description:
-      "Analyzed 7+ years of crash data to uncover time-based and spatial trends in work zone safety. Used ML clustering to identify high-risk zones. Awarded 1st Place Poster at the 2025 JU Research Symposium.",
-    venue: "Jacksonville University Research Symposium (2025)",
-    link: "https://github.com/svnsvnsvn/florida-crashes", 
-    tags: ["ML", "Geospatial", "Transportation Safety"]
+      "Analyzed 7+ years of FDOT crash data to uncover temporal and spatial patterns in work zone safety across Florida. Applied machine learning clustering techniques to identify high-risk zones and developed predictive models for crash severity. Research findings submitted for peer review at CRC conference. Awarded 1st Place Poster at the 2025 JU Research Symposium.",
+    venue: "Jacksonville University Research Symposium (2025) | Under Review: CRC Conference (2026)",
+    link: null,
+    tags: ["ML", "Geospatial", "Transportation Safety", "Data Analysis", "FDOT", "Under Review"]
   }
 ];
